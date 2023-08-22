@@ -7,31 +7,42 @@ public class creditCardBuilder {
     private String customerName;
     private String companyName;
 
-    public void setId(int id) {
+    public creditCardBuilder setId(int id) {
         this.id = id;
+        return this;
     }
 
-    public void setCustomerId(int customerId) {
+    public creditCardBuilder setCustomerId(int customerId) {
         this.customerId = customerId;
+        return this;
     }
 
-    public void setCompanyId(int companyId) {
+    public creditCardBuilder setCompanyId(int companyId) {
         this.companyId = companyId;
+        return this;
     }
 
-    public void setCustomerName(String customerName) {
+    public creditCardBuilder setCustomerName(String customerName) {
         this.customerName = customerName;
+        return this;
+    }
+    public creditCardBuilder setCompanyName(String companyName) {
+        this.companyName = companyName;
+        return this;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public static creditCardBuilder startBuilder(){
+        creditCardBuilder startCardBuilder=new creditCardBuilder();
+        return startCardBuilder;
     }
+
     public static creditCardBuilder createCompanyCard(int id,int companyId,String companyName){
         creditCardBuilder companyCard=new creditCardBuilder();
         companyCard.setCompanyId(companyId);
         companyCard.setCompanyName(companyName);
         companyCard.setId(id);
-
+        companyCard.setCustomerId(0);
+        companyCard.setCustomerName("");
         return companyCard;
     }
     public static creditCardBuilder createCustomerCard(int id,int customerId,String customerName){
@@ -39,9 +50,11 @@ public class creditCardBuilder {
         customerCard.setCustomerId(customerId);
         customerCard.setCustomerName(customerName);
         customerCard.setId(id);
+        customerCard.setCompanyId(0);
+        customerCard.setCompanyName("");
         return customerCard;
     }
-public creditCardBuilder createDefault(int id){
+public  creditCardBuilder createDefault(int id){
         this.id=id;
         return this;
 }
