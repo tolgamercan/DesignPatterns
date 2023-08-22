@@ -2,7 +2,7 @@ package org.example;
 public class Instance {
     private static Instance instance;
 
-    public Instance(){
+    private  Instance(){
         System.out.println("Instance created");
     }
     public static Instance getInstance(){
